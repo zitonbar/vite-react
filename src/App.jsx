@@ -1,16 +1,19 @@
 import { useEffect, useState } from 'react'
-// import axios from 'axios'
+import axios from 'axios'
 
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import './assets/all.scss'
 import './App.css'
+
+console.log(import.meta.env.VITE_APP_PATH);
 
 function App() {
   const [count, setCount] = useState(0)
 
   useEffect(() =>{
     (async() =>{
-      const res =await axios.get()
+      const res = await axios.get('https://randomuser.me/api')
       console.log(res);
     })()
   }, [])
@@ -27,7 +30,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button className="btn btn-primary" onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
         <p>
